@@ -2,15 +2,19 @@
 
 namespace Shapes
 {
-    abstract public class Shape 
+    public interface IArea
+    {
+        public double Area { get; }
+    }
+    abstract public class PlaneFigure :IArea
     {
         protected double _area;
         public double Area => _area;
-        public Shape() {
+        public PlaneFigure() {
         _area = 0;
         }
     }
-       public class Circle:Shape
+       public class Circle:PlaneFigure
     {
         public Circle()
         {
@@ -26,7 +30,7 @@ namespace Shapes
         }
     }
 
-    public class Triangle : Shape
+    public class Triangle : PlaneFigure
     {
         private bool _isRight;
         public bool IsRight => _isRight;
